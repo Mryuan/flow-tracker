@@ -601,32 +601,32 @@
     }
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
+      if (raw !== null) {
+        // Has existing data (including empty array from user clearing)
         problems = JSON.parse(raw);
+        return;
       }
     } catch(e) {}
-    if (!problems || problems.length === 0) {
-      // Seed demo data for first time
-      problems = [
-        { id: 0, title: '为什么很不想上班？', stage: 1, priority: '高', date: '2026-08-19',
-          detail: makeEmptyDetail() },
-        { id: 1, title: '短视频账号定位不清晰', stage: 1, priority: '高', date: '2026-08-17',
-          detail: makeEmptyDetail() },
-        { id: 2, title: '周复盘表遗漏了关键数据', stage: 3, priority: '中', date: '2026-08-15',
-          detail: makeEmptyDetail() },
-        { id: 3, title: '如何快速积累3C短视频作品？', stage: 0, priority: '高', date: '2026-08-19',
-          detail: makeEmptyDetail() },
-        { id: 4, title: '上个月选品策略复盘', stage: 4, priority: '中', date: '2026-08-10',
-          detail: makeEmptyDetail() },
-        { id: 5, title: '3C数码行业选品经验', stage: 5, priority: '低', date: '2026-08-05',
-          detail: makeEmptyDetail() },
-        { id: 6, title: '2025年遗留：账号权重问题', stage: 0, priority: '高', date: '2025-12-28',
-          detail: makeEmptyDetail() },
-        { id: 7, title: '2025年Q4复盘总结', stage: 4, priority: '中', date: '2025-12-01',
-          detail: makeEmptyDetail() }
-      ];
-      saveToStorage();
-    }
+    // First time ever: seed demo data
+    problems = [
+      { id: 0, title: '为什么很不想上班？', stage: 1, priority: '高', date: '2026-08-19',
+        detail: makeEmptyDetail() },
+      { id: 1, title: '短视频账号定位不清晰', stage: 1, priority: '高', date: '2026-08-17',
+        detail: makeEmptyDetail() },
+      { id: 2, title: '周复盘表遗漏了关键数据', stage: 3, priority: '中', date: '2026-08-15',
+        detail: makeEmptyDetail() },
+      { id: 3, title: '如何快速积累3C短视频作品？', stage: 0, priority: '高', date: '2026-08-19',
+        detail: makeEmptyDetail() },
+      { id: 4, title: '上个月选品策略复盘', stage: 4, priority: '中', date: '2026-08-10',
+        detail: makeEmptyDetail() },
+      { id: 5, title: '3C数码行业选品经验', stage: 5, priority: '低', date: '2026-08-05',
+        detail: makeEmptyDetail() },
+      { id: 6, title: '2025年遗留：账号权重问题', stage: 0, priority: '高', date: '2025-12-28',
+        detail: makeEmptyDetail() },
+      { id: 7, title: '2025年Q4复盘总结', stage: 4, priority: '中', date: '2025-12-01',
+        detail: makeEmptyDetail() }
+    ];
+    saveToStorage();
   }
 
   function saveToStorage() {
