@@ -1,0 +1,22 @@
+{
+  "name": "问题流程追踪器",
+  "short_name": "流程追踪",
+  "description": "问题 → 思考 → 执行 → 检查 → 复盘 → 沉淀",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#12121f",
+  "theme_color": "#1a1a2e",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
